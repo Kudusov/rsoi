@@ -141,7 +141,11 @@ try:
     import django_heroku
     django_heroku.settings(locals())
 except ImportError:
-    pass
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+    # pass
 
 # if len(DATABASES['default']) != 0:
 #     del DATABASES['default']['OPTIONS']['sslmode']
