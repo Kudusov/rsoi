@@ -3,11 +3,21 @@ python:
   - "3.6"
 
 before_install:
-- sed '/django-heroku==/d' requirements.txt > requirements-build.txt
+- sed '/django-heroku==/d' requirements.txt > requirements-travis.txt
 install:
-- pip install -r requirements-build.txt
+- pip install -r requirements-travis.txt
 # before_script:
 # - python manage.py makemigrations
 - python manage.py migrate
 script:
 - python manage.py test
+
+deploy:
+  provider: heroku
+  app: kudusovrsoi
+  on:
+    repo: https://github.com/Kudusov/rsoi
+  api_key:
+    secure: "db711e83-20df-4192-b855-301b85d4808c"
+notifications:
+  email: false
