@@ -14,7 +14,7 @@ script:
 
 deploy:
   provider: heroku
-  app: kudusovrsoi
+  app: protected-reef-33135
   on:
     repo: Kudusov/rsoi
   api_key:
