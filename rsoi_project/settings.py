@@ -137,5 +137,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
-if len(DATABASES['default']) != 0:
+# if len(DATABASES['default']) != 0:
+#     del DATABASES['default']['OPTIONS']['sslmode']
+try:
     del DATABASES['default']['OPTIONS']['sslmode']
+except KeyError:
+    pass
