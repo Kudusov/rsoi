@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 import dj_database_url
 import dotenv
 
@@ -135,7 +135,12 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
+try:
+    import django_heroku
+    django_heroku.settings(locals())
+except ImportError:
+    pass
 
 # if len(DATABASES['default']) != 0:
 #     del DATABASES['default']['OPTIONS']['sslmode']
