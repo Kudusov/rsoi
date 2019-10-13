@@ -16,7 +16,7 @@ deploy:
   provider: heroku
   app: kudusovrsoi
   on:
-    repo: https://github.com/Kudusov/rsoi
+    repo: Kudusov/rsoi
   api_key:
     secure: "db711e83-20df-4192-b855-301b85d4808c"
 notifications:
