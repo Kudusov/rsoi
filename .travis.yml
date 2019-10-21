@@ -6,7 +6,7 @@ before_install:
 - sed '/django-heroku==/d' requirements.txt > requirements-travis.txt
 install:
 - pip install -r requirements-travis.txt
-# before_script:
+before_script:
 # - python manage.py makemigrations
 - python manage.py migrate
 script:
