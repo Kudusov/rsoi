@@ -6,3 +6,6 @@ def hello2():
 
 def hello3():
     return 'hello'
+
+def hello4():
+    return 'hello'
